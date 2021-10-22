@@ -1,4 +1,3 @@
-import pdb
 digit = {
   "0": "",
   "1": "One",
@@ -8,7 +7,7 @@ digit = {
   "5": "Five",
   "6": "Six",
   "7": "Seven",
-  '8': 'Eight',
+  '8': 'Eight',                 
   '9': 'Nine',
   '10': 'Ten',
   '11': 'Eleven',
@@ -39,7 +38,35 @@ factor = {
     '4': 'Billion',
     '5': 'Trillion',
     '6': 'Quadrillion',
-    '7': 'Quintillion'
+    '7': 'Quintillion',
+    '8': 'Sextillion',
+    '9': 'Septillion',
+    '10': 'Octillion',
+    '11': 'Nonillion',
+    '12': 'Decillion',
+    '13': 'Undecillion',
+    '14': 'Duodecillion',
+    '15': 'Tredecillion',
+    '16': 'Quattuordecillion',
+    '17': 'Quindecillion',
+    '18': 'Sexdecillion',
+    '19': 'Septendecillion',
+    '20': 'Octodecillion',
+    '21': 'Novemdecillion',
+    '22': 'Vigintillion',
+    '23': 'Unvigintillion',
+    '24': 'Duovigintillion',
+    '25': 'Trevigintillion',
+    '26': 'Quattuorvigintillion',
+    '27': 'Quinvigintillion',
+    '28': 'Sexvigintillion',
+    '29': 'Septenvigintillion',
+    '30': 'Octovigintillion',
+    '31': 'Nonvigintillion',
+    '32': 'Trigintillion',
+    '33': 'Untrigintillion',
+    '34': 'Duotrigintillion'
+    
 }
 
 def tens(x):
@@ -54,18 +81,18 @@ def tens(x):
 def integer(number, inc):
   number = str(number)
   e = str(inc + 1)  
-  if len(number) == 3:
+  if len(number) == 3:  
     if difference == 0:      
       return 'Hundred ' + 'and ' + tens(number[1:3])
     else:
       return 'Hundred ' + 'and ' + tens(number[1:3]) + ' ' + factor[e] + ','
   elif difference ==0:
-    return tens(number)
+    return tens(number) 
   else:
     return tens(number) + ' ' + factor[e]
 
 NumtoWord = str(input("Enter any Number?  "))
-numlist = ([str(NumtoWord[::-1][i:i+3][::-1]) for i in range(0, len(NumtoWord), 3)][::-1])
+numlist = ([str(NumtoWord[::-1][i:i+3][::-1]) for i in range(0, len(NumtoWord), 3)][::-1]) 
 length = len(numlist)
 index = 0
 #pdb.set_trace()
@@ -79,8 +106,3 @@ for i in numlist:
   else:    
     print(f"{str(digit[i[0]])} {integer(i,difference)}", end=" ")
 print('\n')
-
-
-
-
-
