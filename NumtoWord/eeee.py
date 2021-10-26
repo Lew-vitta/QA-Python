@@ -65,8 +65,7 @@ factor = {
     '31': 'Nonvigintillion',
     '32': 'Trigintillion',
     '33': 'Untrigintillion',
-    '34': 'Duotrigintillion'
-    
+    '34': 'Duotrigintillion'    
 }
 
 def tens(x):
