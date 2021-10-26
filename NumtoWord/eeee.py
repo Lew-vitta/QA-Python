@@ -17,7 +17,7 @@ digit = {
   '15': 'Fithteen',
   '16': 'Sixteen',
   '17': 'Seventeen',
-  '18': 'Eightteen',
+  '18': 'Eighteen',
   '19': "Nineteen"
 }
 ten = {
@@ -84,25 +84,46 @@ def integer(number, inc):
   if len(number) == 3:  
     if difference == 0:      
       return 'Hundred ' + 'and ' + tens(number[1:3])
+    elif number[0] == "0":
+      if number[1:3] == "00":
+        return ''
+      return 'and ' + tens(number[1:3]) + ' ' + factor[e] + ','
     else:
       return 'Hundred ' + 'and ' + tens(number[1:3]) + ' ' + factor[e] + ','
-  elif difference ==0:
+  elif difference == 0:
     return tens(number) 
   else:
     return tens(number) + ' ' + factor[e]
 
-NumtoWord = str(input("Enter any Number?  "))
-numlist = ([str(NumtoWord[::-1][i:i+3][::-1]) for i in range(0, len(NumtoWord), 3)][::-1]) 
-length = len(numlist)
-index = 0
-#pdb.set_trace()
 
-for i in numlist:
-  index += 1
-  difference = length - index
-  if len(numlist[0]) < 3 and index == 1:
-    print(f"{integer(i,difference)}", end=" ")  # not quite
+def loopy(x):
+  numlist = ([str(x[::-1][i:i+3][::-1]) for i in range(0, len(x), 3)][::-1]) 
+  length = len(numlist)
+  index = 0
+  global difference 
+  #pdb.set_trace()
+  
+  for i in numlist:
+    index += 1
+    difference = length - index
+    if len(numlist[0]) < 3 and index == 1:
+      print(f"{integer(i,difference)}", end=" ")  # not quite
 
-  else:    
-    print(f"{str(digit[i[0]])} {integer(i,difference)}", end=" ")
-print('\n')
+    else:    
+      print(f"{str(digit[i[0]])} {integer(i,difference)}", end=" ")
+  print('\n')
+
+
+loopy("1")
+loopy("10")
+loopy("18")
+loopy("20")
+loopy("99")
+loopy("101")
+loopy("132")
+loopy("1024")  # One Thousand,  Hundred and Twenty Four
+loopy("12560")  # Twelve Thousand,  Five Hundred and Sixty  Hundred,
+# [120]000[555] One Hundred and Twenty  Million,   Hundred and  Thousand,  Five Hundred and Fifty Five Hundred,
+loopy("120000555")
+loopy("50342")  # Fifty  Thousand,  Three Hundred and Fourty Two Hundred
+loopy("383578325783257032085")
