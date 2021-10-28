@@ -111,6 +111,7 @@ def integer(number, inc):
   # if first set has less than 3 digits, return tens with the factor
   else:
     return tens(number) + ' ' + factor[e] + ', '
+
 # Take a string input of a number to output the "text" version of that number "one hundred"
 def loopy(x):
   #use list comprehension to put the string in 'sets of 3' format i,e 12345678 = [12][345][678]
@@ -121,7 +122,7 @@ def loopy(x):
   global difference
   #index similarly counts the sets upto length, so we know how far through the number we are.
   index = 0
-  #for each set in te number
+  #for each set in the number
   for i in numlist:
     index += 1
     #difference helps us find the factor that the specific set is going to be. Plus one alligns it correctly
